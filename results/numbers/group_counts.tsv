@@ -1,0 +1,71 @@
+GROUP	METHOD	TECHNOLOGY	N
+A	A priori	ONT	3285
+A	A priori	PacBio HiFi	3301
+A	Multi POA	ONT	3269
+A	Multi POA	PacBio HiFi	3299
+A	RapidFuzz	ONT	3291
+A	RapidFuzz	PacBio HiFi	3265
+A	True phase	ONT	3306
+A	True phase	PacBio HiFi	3305
+A	abPOA	ONT	3288
+A	abPOA	PacBio HiFi	3304
+A	k-mer clust	ONT	2289
+A	k-mer clust	PacBio HiFi	2537
+B	A priori	ONT	16
+B	A priori	PacBio HiFi	8
+B	Multi POA	ONT	8
+B	Multi POA	PacBio HiFi	11
+B	RapidFuzz	ONT	16
+B	RapidFuzz	PacBio HiFi	17
+B	True phase	ONT	4
+B	True phase	PacBio HiFi	5
+B	abPOA	ONT	22
+B	abPOA	PacBio HiFi	6
+B	k-mer clust	ONT	1021
+B	k-mer clust	PacBio HiFi	773
+C	A priori	ONT	9
+C	A priori	PacBio HiFi	1
+C	Multi POA	ONT	33
+C	RapidFuzz	ONT	3
+C	RapidFuzz	PacBio HiFi	28
+D	A priori	ONT	10570
+D	A priori	PacBio HiFi	10683
+D	Multi POA	ONT	7038
+D	Multi POA	PacBio HiFi	11344
+D	RapidFuzz	ONT	9779
+D	RapidFuzz	PacBio HiFi	11288
+D	True phase	ONT	11327
+D	True phase	PacBio HiFi	11343
+D	abPOA	ONT	6701
+D	abPOA	PacBio HiFi	6726
+D	k-mer clust	ONT	8366
+D	k-mer clust	PacBio HiFi	7208
+E	A priori	ONT	1925
+E	A priori	PacBio HiFi	1861
+E	Multi POA	ONT	5594
+E	Multi POA	PacBio HiFi	1329
+E	RapidFuzz	ONT	2880
+E	RapidFuzz	PacBio HiFi	1392
+E	True phase	ONT	1329
+E	True phase	PacBio HiFi	1331
+E	abPOA	ONT	5948
+E	abPOA	PacBio HiFi	5949
+E	k-mer clust	ONT	2975
+E	k-mer clust	PacBio HiFi	4679
+F	A priori	ONT	175
+F	A priori	PacBio HiFi	139
+F	Multi POA	ONT	10
+F	Multi POA	PacBio HiFi	17
+F	RapidFuzz	ONT	28
+F	RapidFuzz	PacBio HiFi	9
+F	True phase	ONT	34
+F	True phase	PacBio HiFi	16
+F	abPOA	ONT	41
+F	abPOA	PacBio HiFi	15
+F	k-mer clust	ONT	1349
+F	k-mer clust	PacBio HiFi	803
+G	A priori	ONT	20
+G	A priori	PacBio HiFi	7
+G	Multi POA	ONT	48
+G	RapidFuzz	ONT	3
+G	RapidFuzz	PacBio HiFi	1
