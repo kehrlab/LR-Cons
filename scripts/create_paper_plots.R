@@ -567,7 +567,7 @@ stats %>%
     AvgTime = mean(TIME),
     seTime = sd(TIME) / sqrt(n()),
     .groups = "keep"
-  ) %>% write_tsv("results/time_averages_16000_ont_99_1_-1_-1_-1.tsv")
+  ) %>% write_tsv(paste0(numbers_dir, "/time_averages_16000_ont_99_1_-1_-1_-1.tsv"))
 
 p_time <- stats %>%
   group_by(METHOD, ALN_PARAMS, TECHNOLOGY, ACCURACY, COVERAGE) %>%

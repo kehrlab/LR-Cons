@@ -28,8 +28,7 @@ Relevant data for the plot generation can be found in:
 
 Simulated data and generated consensus sequences are not contained in this repository.
 
-## Current Workflow
-![image](dag.svg)
+## Workflow
 
 1. Insertion of 16000 SVs on chromosome 1 of T2T-CHM13.
     - Deletions
