@@ -1,0 +1,11 @@
+ref_file: /misc/rci-rg/ag_kehr/projects/2026_19_01-poa_phasing/lr_consensus_benchmarking/resources/chr1_t2t-chm13.fa
+exclude_file: /misc/rci-rg/ag_kehr/projects/2026_19_01-poa_phasing/lr_consensus_benchmarking/resources/exclude_regions_chr1.bed
+
+data_dir: /misc/rci-rg/ag_kehr/projects/2026_19_01-poa_phasing/lr_consensus_benchmarking/data
+simdata_dir: /misc/rci-rg/ag_kehr/projects/2026_19_01-poa_phasing/lr_consensus_benchmarking/data/simulated_sequences
+results_dir: /misc/rci-rg/ag_kehr/projects/2026_19_01-poa_phasing/lr_consensus_benchmarking/results
+pbsim_model_path: /home/mit16436/miniforge3/envs/pbsim/data
+mm_idx_ont: /misc/rci-rg/ag_kehr/projects/2026_19_01-poa_phasing/lr_consensus_benchmarking/resources/chr1_t2t.ont.mmi
+mm_idx_pb: /misc/rci-rg/ag_kehr/projects/2026_19_01-poa_phasing/lr_consensus_benchmarking/resources/chr1_t2t.pb.mmi
+binary_dir: /misc/rci-rg/ag_kehr/projects/2026_19_01-poa_phasing/lr_consensus_benchmarking/
+

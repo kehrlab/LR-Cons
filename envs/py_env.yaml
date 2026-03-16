@@ -1,0 +1,46 @@
+name: py_env
+channels:
+  - bioconda
+  - conda-forge
+  - nodefaults
+dependencies:
+  - _libgcc_mutex=0.1=conda_forge
+  - _openmp_mutex=4.5=2_gnu
+  - bzip2=1.0.8=hda65f42_8
+  - c-ares=1.11.0=h470a237_1
+  - ca-certificates=2026.1.4=hbd8a1cb_0
+  - curl=7.71.1=he644dc0_8
+  - intervaltree=3.1.0=pyhd8ed1ab_1
+  - krb5=1.17.2=h926e7f8_0
+  - ld_impl_linux-64=2.45=bootstrap_ha15bf96_5
+  - libcurl=7.71.1=hcdd3856_8
+  - libdeflate=1.0=h14c3975_1
+  - libedit=3.1.20250104=pl5321h7949ede_0
+  - libev=4.33=hd590300_2
+  - libffi=3.4.6=h2dba641_1
+  - libgcc=15.2.0=he0feb66_16
+  - libgcc-ng=15.2.0=h69a702a_16
+  - libgomp=15.2.0=he0feb66_16
+  - libnghttp2=1.41.0=hab1572f_1
+  - libnsl=2.0.1=hb9d3cd8_1
+  - libsqlite=3.46.0=hde9e2c9_0
+  - libssh2=1.10.0=haa6b8db_3
+  - libstdcxx=15.2.0=h934c35e_16
+  - libstdcxx-ng=15.2.0=hdf11a46_16
+  - libzlib=1.2.13=h4ab18f5_6
+  - ncurses=6.5=h2d0b736_3
+  - openssl=1.1.1w=hd590300_0
+  - pip=21.3.1=pyhd8ed1ab_0
+  - pysam=0.15.3=py36hda2845c_1
+  - python=3.6.15=hb7a2778_0_cpython
+  - python_abi=3.6=2_cp36m
+  - readline=8.3=h853b02a_0
+  - setuptools=58.0.4=py36h5fab9bb_2
+  - sortedcontainers=2.4.0=pyhd8ed1ab_0
+  - sqlite=3.46.0=h6d4b2fc_0
+  - tk=8.6.13=noxft_h4845f30_101
+  - tqdm=4.7.2=py36_0
+  - wheel=0.37.1=pyhd8ed1ab_0
+  - xz=5.2.6=h166bdaf_0
+  - zlib=1.2.13=h4ab18f5_6
+prefix: /home/mit16436/miniforge3/envs/py_env
