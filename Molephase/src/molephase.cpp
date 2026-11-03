@@ -5,8 +5,8 @@
 # include "molephase.h"
 # include "parse.h"
 # include "coverageIndex.h"
-# include "seqan/seq_io.h"
-# include "seqan/sequence.h"
+# include "../seqan/seq_io.h"
+# include "../seqan/sequence.h"
 # include <bitset>
 # include "call_index.h"
 
@@ -104,6 +104,12 @@ int main(int argc, char const **argv){
 
   reduceKmerSet(refKmers, altKmers, kmersPos, kmerToBarcodes, options); //[TEST2]
 
+  if(refKmers.empty()){
+    writeToUnphased(readData, options);
+    std::cerr << "\nNo phasable kmers found. Writing all output to unphased.\n";
+    return 0;
+  }
+
   std::vector<hashId_t> hap1;
   std::vector<hashId_t> hap2;
   hap1.reserve(refKmers.size());
@@ -185,13 +191,18 @@ bool loadReference(Dna5String & reference, phaseOptions & options){ // load ref.
   // look up chromosome position in fai
   unsigned idx = 0;
   if (!getIdByName(idx, faiIndex, options.chrom)){
-    std::cout << "\n\n\tERROR: FAI index has no entry for:\t" << options.chrom << "\n";
+    std::cerr << "\n\n\tERROR: FAI index has no entry for:\t" << options.chrom << "\n";
     return false;
   }
 
   // extract region of interest
   IupacString reference_IupacString;
-  readRegion(reference_IupacString, faiIndex, idx, options.start-1, options.end);
+  if(options.start==0){
+    options.start++;
+    options.end++;
+    std::cerr << "Warning: Start position is 0. Please note that the reference positions are 1-based! Start and end positions were incremented.\n";
+  }
+  readRegion(reference_IupacString, faiIndex, idx, options.start, options.end);
   reference = reference_IupacString;
 
   return true;
@@ -321,6 +332,8 @@ void buildKmerToBarcodes(std::set<hashId_t> & hetKmers, ReadData & readData, std
 
   // iterate over reads
   for (ReadsIterator itReads1 = begin(readData.reads1); itReads1!=end(readData.reads1); ++itReads1){ //  for every readpair in reads1 and reads2
+    // check read length
+    if(length(*itReads1) <= options.k+1){continue;}
     // extract barcode from id
     identifier = getIdentifier(toCString(*itrIds), barcode_length);
     itrIds++;
@@ -328,6 +341,7 @@ void buildKmerToBarcodes(std::set<hashId_t> & hetKmers, ReadData & readData, std
     // initialize hash for read1
     Dna5String kmer = prefix(*itReads1,options.k);
     hash_t hash(kmer);
+
     fillKmerToBarcodes(kmerToBarcodes, hetKmers, hash, identifier);
 
     // iterate over kmers in read 1
@@ -369,6 +383,7 @@ void reduceKmerSet(std::vector<hashId_t> & refKmers, std::vector<hashId_t> & alt
   // check for duplicate Kmers
   std::set<hashId_t> seenKmers;
   std::set<hashId_t> duplicateKmers;
+
   for(std::vector<hashId_t>::iterator it = refKmers.begin(); it!= refKmers.end(); it++){
     if(seenKmers.count(*it)){ // if kmer already seen
       duplicateKmers.insert(*it);
@@ -407,6 +422,10 @@ void reduceKmerSet(std::vector<hashId_t> & refKmers, std::vector<hashId_t> & alt
     kmersPos=kmersPosBuff;
   }
   // std::cerr << "after:\naltKmers.size(): " << altKmers.size() << "\t refKmers.size(): " << refKmers.size() << "\n";
+
+  if(refKmers.size()==0){
+    return;
+  }
 
   // merge adjacent Kmers
   std::vector<hashId_t> refKmersBuff; refKmersBuff.reserve(refKmers.size());

@@ -3,6 +3,7 @@
 
 #include "kmeans/kmeans.hpp"
 
+#include <unordered_map>
 #include <vector>
 #include <string>
 #include <iostream>
@@ -29,24 +30,28 @@ const unsigned char seq_nt4_table[256] = { // translate ACGT to 0123
 
 
 
-inline uint16_t hash_kmer(std::string kmer) {
-    uint16_t hash = 0;
-    std::vector<uint16_t> base_vals = {1, 4, 16, 64, 256, 1024, 2048};
-    for (uint8_t i = 0; i < 7; ++i)
-        hash += base_vals[i] * seq_nt4_table[kmer[i]];
-    return hash;
-}
+// inline uint16_t hash_kmer(std::string kmer, uint8_t k) {
+//     uint16_t hash = 0;
+//     std::vector<uint16_t> base_vals = {1, 4, 16, 64, 256, 1024, 2048};
+//     for (uint8_t i = 0; i < 7; ++i)
+//         hash += base_vals[i] * seq_nt4_table[kmer[i]];
+//     return hash;
+// }
 
 
-inline std::vector<std::vector<uint8_t>> count_kmers(std::vector<std::string> strings) {
-    std::vector<std::vector<uint8_t>> cnt(16384, std::vector<uint8_t>(strings.size(), 0));
-    for (uint8_t j = 0; j < strings.size(); ++j)
+inline std::unordered_map<std::string, std::vector<uint8_t>> count_kmers(std::vector<std::string> strings, uint8_t k) {
+    std::unordered_map<std::string, std::vector<uint8_t>> cnt;
+
+    // std::vector<std::vector<uint8_t>> cnt(std::pow(2, k), std::vector<uint8_t>(strings.size(), 0));
+    for (uint16_t j = 0; j < strings.size(); ++j)
     {
-        for (uint32_t i = 0; i < (int64_t) strings[j].length() - 7; ++i)
+        for (uint32_t i = 0; i < (int64_t) strings[j].length() - k; ++i)
         {
-            uint16_t hash = hash_kmer(strings[j].substr(i, 7));
-            if (cnt[hash][j] <= 100) // anything that is too frequent can be excluded
-                cnt[hash][j]++;
+            std::string kmer = strings[j].substr(i, k);
+            if (cnt.find(kmer) == cnt.end())
+                cnt[kmer] = std::vector<uint8_t>(strings.size(), 0);
+            if (cnt[kmer][j] <= 100)
+                ++cnt[kmer][j];
         }
     }
     return cnt;
@@ -80,8 +85,11 @@ inline float sd(float m, const std::vector<uint8_t> & cnt) {
 }
 
 
-inline bool reduce_kmers(std::vector<std::vector<uint8_t>> & cnt) {
+inline std::vector<std::vector<uint8_t>> reduce_kmers(std::unordered_map<std::string, std::vector<uint8_t>> & cnt) {
+    std::vector<std::vector<uint8_t>> reduced_cnt;
+
     std::vector<float> sds(cnt.size(), 0.);
+    std::vector<std::string> kmers(cnt.size());
     std::vector<int> indices(cnt.size(), 0);
     for (int i = 0; i < sds.size(); ++i)
         indices[i] = i;
@@ -89,9 +97,10 @@ inline bool reduce_kmers(std::vector<std::vector<uint8_t>> & cnt) {
     int insufficient = 0;
     int missing = 0;
     int overrepresented = 0;
-    for (uint16_t i = 0; i < cnt.size(); ++i)
+    uint16_t i = 0;
+    for (auto & kmer : cnt)
     {
-        float m = mean(cnt[i]);
+        float m = mean(kmer.second);
         float s = 0;
 
         if (m < 0) {
@@ -102,9 +111,11 @@ inline bool reduce_kmers(std::vector<std::vector<uint8_t>> & cnt) {
             else
                 ++overrepresented;
         } else {
-            s = sd(m, cnt[i]);
+            s = sd(m, kmer.second);
         }
         sds[i] = s;
+        kmers[i] = kmer.first;
+        ++i;
     }
 
     std::sort(indices.begin(), indices.end(), [&](int a, int b) -> bool {
@@ -116,31 +127,30 @@ inline bool reduce_kmers(std::vector<std::vector<uint8_t>> & cnt) {
     std::cout << "K-Mers with insufficient occurrence: " << insufficient << std::endl;
     #endif
 
-    size_t n = std::min(100, 16384 - missing - insufficient);
+    size_t n = std::min((size_t) 100, indices.size() - missing - insufficient);
 
     if (n < 10)
     {
 	    std::cerr << "[INFO] Insufficient number of remaining k-mers." << std::endl;
-	    return false;
+	    return reduced_cnt;
     }
 
     #ifdef VERBOSE
     std::cout << "Reduce to " << n << " k-mers with highest variance across sequences." << std::endl;
     #endif
 
-    size_t n_reads = cnt[0].size();
-    std::vector<std::vector<uint8_t>> reduced_cnt(n_reads, std::vector<uint8_t>(n));
+    size_t n_reads = cnt[kmers[indices[0]]].size();
+    reduced_cnt = std::vector<std::vector<uint8_t>>(n_reads, std::vector<uint8_t>(n));
 
     #ifdef VERBOSE
     std::cout << "Number of sequences: " << reduced_cnt.size() << std::endl << std::flush;
     #endif
 
     for (uint16_t i = 0; i < n; ++i)
-        for (uint16_t j = 0; j < cnt[indices[i]].size(); ++j)
-            reduced_cnt[j][i] = cnt[indices[i]][j];
+        for (uint16_t j = 0; j < cnt[kmers[indices[i]]].size(); ++j)
+            reduced_cnt[j][i] = cnt[kmers[indices[i]]][j];
 
-    cnt = reduced_cnt;
-    return true;
+    return reduced_cnt;
 }
 
 

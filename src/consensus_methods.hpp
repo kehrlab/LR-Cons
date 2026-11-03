@@ -43,12 +43,25 @@ inline bool get_molephase_sequence_assignments(
         return false;
     }
 
-    // process sequence names -> everything before second underscore
+    // process sequence names -> need to remove the [_start_end] from the names of the extracted sequences
     for (int i = 0; i < seq_names.size(); ++i) {
-	if (seq_names[i].find("ccs") == std::string::npos) // not PacBio: format S1_xxx_[start_end]
-            seq_names[i] = seq_names[i].substr(0, seq_names[i].find("_", seq_names[i].find("_") + 1));
-        else // PacBio: format S1/xxx/ccs[_start_end]
-	    seq_names[i] = seq_names[i].substr(0, seq_names[i].find("_"));
+        int suf_pos = -1;
+        int8_t count = 0;
+        for (int j = seq_names[i].length() - 1; j >= 0; ++j)
+        {
+            if (seq_names[i][j] == '_')
+                ++count;
+
+            if (count == 2)
+            {
+                suf_pos = j;
+                break;
+            }
+        }
+        if (suf_pos < 0)
+            continue;
+
+        seq_names[i] = seq_names[i].substr(0, suf_pos); // this should work for all read naming schemes
     }
 
     bool indices_built = true;
@@ -129,15 +142,17 @@ inline bool get_true_sequence_assignments(
 // Uses k-means clustering.
 inline bool get_kmeans_sequence_assignments(
     std::vector<int8_t> & sequence_assignments,
-    std::vector<std::string> sequences
+    std::vector<std::string> sequences,
+    uint8_t k
 )
 {
     sequence_assignments = std::vector<int8_t>(sequences.size(), -1);
-    std::vector<std::vector<uint8_t>> cnt = count_kmers(sequences);
-    if (!reduce_kmers(cnt))
+    std::unordered_map<std::string, std::vector<uint8_t>> cnt = count_kmers(sequences, k);
+    // std::vector<std::vector<uint8_t>> cnt = count_kmers(sequences);
+    std::vector<std::vector<uint8_t>> reduced_cnt = reduce_kmers(cnt);
+    if (reduced_cnt.size() == 0)
         return false;
-
-    std::vector<int> cl_assignments = k_clust_kmers(cnt, 2);
+    std::vector<int> cl_assignments = k_clust_kmers(reduced_cnt, 2);
     for (int i = 0; i < cl_assignments.size(); ++i)
         sequence_assignments[i] = cl_assignments[i];
 
@@ -305,7 +320,8 @@ inline int8_t create_consensus_general(
     aln_params p,
     int margin,
     std::string method,
-    bool semiglobal
+    bool semiglobal,
+    uint8_t k
 )
 {
     int read_threshold = 2; // number of sequences that must be exceeded for consensus creation
@@ -317,7 +333,7 @@ inline int8_t create_consensus_general(
     else if (method == "TRUE_HAP")
         status = get_true_sequence_assignments(sequence_assignments, seq_names);
     else if (method == "KMEANS")
-        status = get_kmeans_sequence_assignments(sequence_assignments, sequences);
+        status = get_kmeans_sequence_assignments(sequence_assignments, sequences, k);
     else if (method == "fuzzy")
         status = get_fuzzy_sequence_assignments(sequence_assignments, sequences);
     else

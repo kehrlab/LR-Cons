@@ -1,0 +1,169 @@
+GROUP	METHOD	TECHNOLOGY	ORIGIN	N
+A	A priori	PacBio HiFi	real - 2020	2923
+A	A priori	PacBio HiFi	real - 2025	2934
+A	A priori	ONT	real - 2020	3018
+A	A priori	ONT	real - 2025	3021
+A	Multi POA	PacBio HiFi	real - 2020	3003
+A	Multi POA	PacBio HiFi	real - 2025	3026
+A	Multi POA	ONT	real - 2020	253
+A	Multi POA	ONT	real - 2025	3015
+A	Multi POA (0.90)	PacBio HiFi	real - 2020	3024
+A	Multi POA (0.90)	PacBio HiFi	real - 2025	3049
+A	Multi POA (0.90)	ONT	real - 2020	2837
+A	Multi POA (0.90)	ONT	real - 2025	3031
+A	RapidFuzz	PacBio HiFi	real - 2020	3007
+A	RapidFuzz	PacBio HiFi	real - 2025	2977
+A	RapidFuzz	ONT	real - 2020	2999
+A	RapidFuzz	ONT	real - 2025	3014
+A	abPOA	PacBio HiFi	real - 2020	3044
+A	abPOA	PacBio HiFi	real - 2025	3047
+A	abPOA	ONT	real - 2020	3061
+A	abPOA	ONT	real - 2025	3056
+A	k-mer clust	PacBio HiFi	real - 2020	2953
+A	k-mer clust	PacBio HiFi	real - 2025	2986
+A	k-mer clust	ONT	real - 2020	2888
+A	k-mer clust	ONT	real - 2025	2760
+B	A priori	PacBio HiFi	real - 2020	48
+B	A priori	PacBio HiFi	real - 2025	48
+B	A priori	ONT	real - 2020	74
+B	A priori	ONT	real - 2025	58
+B	Multi POA	PacBio HiFi	real - 2020	90
+B	Multi POA	PacBio HiFi	real - 2025	74
+B	Multi POA	ONT	real - 2020	1
+B	Multi POA	ONT	real - 2025	86
+B	Multi POA (0.90)	PacBio HiFi	real - 2020	73
+B	Multi POA (0.90)	PacBio HiFi	real - 2025	49
+B	Multi POA (0.90)	ONT	real - 2020	36
+B	Multi POA (0.90)	ONT	real - 2025	68
+B	RapidFuzz	PacBio HiFi	real - 2020	72
+B	RapidFuzz	PacBio HiFi	real - 2025	66
+B	RapidFuzz	ONT	real - 2020	109
+B	RapidFuzz	ONT	real - 2025	76
+B	abPOA	PacBio HiFi	real - 2020	53
+B	abPOA	PacBio HiFi	real - 2025	51
+B	abPOA	ONT	real - 2020	51
+B	abPOA	ONT	real - 2025	47
+B	k-mer clust	PacBio HiFi	real - 2020	135
+B	k-mer clust	PacBio HiFi	real - 2025	100
+B	k-mer clust	ONT	real - 2020	214
+B	k-mer clust	ONT	real - 2025	336
+C	A priori	PacBio HiFi	real - 2020	212
+C	A priori	PacBio HiFi	real - 2025	201
+C	A priori	ONT	real - 2020	91
+C	A priori	ONT	real - 2025	104
+C	Multi POA	PacBio HiFi	real - 2020	90
+C	Multi POA	PacBio HiFi	real - 2025	83
+C	Multi POA	ONT	real - 2020	2929
+C	Multi POA	ONT	real - 2025	82
+C	Multi POA (0.90)	PacBio HiFi	real - 2020	86
+C	Multi POA (0.90)	PacBio HiFi	real - 2025	85
+C	Multi POA (0.90)	ONT	real - 2020	310
+C	Multi POA (0.90)	ONT	real - 2025	84
+C	RapidFuzz	PacBio HiFi	real - 2020	104
+C	RapidFuzz	PacBio HiFi	real - 2025	140
+C	RapidFuzz	ONT	real - 2020	75
+C	RapidFuzz	ONT	real - 2025	93
+C	abPOA	PacBio HiFi	real - 2020	86
+C	abPOA	PacBio HiFi	real - 2025	85
+C	abPOA	ONT	real - 2020	71
+C	abPOA	ONT	real - 2025	80
+C	k-mer clust	PacBio HiFi	real - 2020	95
+C	k-mer clust	PacBio HiFi	real - 2025	97
+C	k-mer clust	ONT	real - 2020	81
+C	k-mer clust	ONT	real - 2025	87
+D	A priori	PacBio HiFi	real - 2020	7584
+D	A priori	PacBio HiFi	real - 2025	7587
+D	A priori	ONT	real - 2020	7302
+D	A priori	ONT	real - 2025	7491
+D	Multi POA	PacBio HiFi	real - 2020	7785
+D	Multi POA	PacBio HiFi	real - 2025	7755
+D	Multi POA	ONT	real - 2020	20
+D	Multi POA	ONT	real - 2025	7820
+D	Multi POA (0.90)	PacBio HiFi	real - 2020	5145
+D	Multi POA (0.90)	PacBio HiFi	real - 2025	4924
+D	Multi POA (0.90)	ONT	real - 2020	3567
+D	Multi POA (0.90)	ONT	real - 2025	5306
+D	RapidFuzz	PacBio HiFi	real - 2020	7740
+D	RapidFuzz	PacBio HiFi	real - 2025	7737
+D	RapidFuzz	ONT	real - 2020	7420
+D	RapidFuzz	ONT	real - 2025	7265
+D	abPOA	PacBio HiFi	real - 2020	7462
+D	abPOA	PacBio HiFi	real - 2025	7430
+D	abPOA	ONT	real - 2020	7603
+D	abPOA	ONT	real - 2025	7499
+D	k-mer clust	PacBio HiFi	real - 2020	7476
+D	k-mer clust	PacBio HiFi	real - 2025	7311
+D	k-mer clust	ONT	real - 2020	6569
+D	k-mer clust	ONT	real - 2025	6150
+E	A priori	PacBio HiFi	real - 2020	1718
+E	A priori	PacBio HiFi	real - 2025	1732
+E	A priori	ONT	real - 2020	1742
+E	A priori	ONT	real - 2025	1801
+E	Multi POA	PacBio HiFi	real - 2020	1629
+E	Multi POA	PacBio HiFi	real - 2025	1676
+E	Multi POA	ONT	real - 2020	397
+E	Multi POA	ONT	real - 2025	1584
+E	Multi POA (0.90)	PacBio HiFi	real - 2020	4302
+E	Multi POA (0.90)	PacBio HiFi	real - 2025	4547
+E	Multi POA (0.90)	ONT	real - 2020	4825
+E	Multi POA (0.90)	ONT	real - 2025	4166
+E	RapidFuzz	PacBio HiFi	real - 2020	1662
+E	RapidFuzz	PacBio HiFi	real - 2025	1671
+E	RapidFuzz	ONT	real - 2020	1948
+E	RapidFuzz	ONT	real - 2025	2157
+E	abPOA	PacBio HiFi	real - 2020	2084
+E	abPOA	PacBio HiFi	real - 2025	2140
+E	abPOA	ONT	real - 2020	1961
+E	abPOA	ONT	real - 2025	2071
+E	k-mer clust	PacBio HiFi	real - 2020	1827
+E	k-mer clust	PacBio HiFi	real - 2025	2114
+E	k-mer clust	ONT	real - 2020	1977
+E	k-mer clust	ONT	real - 2025	3047
+F	A priori	PacBio HiFi	real - 2020	514
+F	A priori	PacBio HiFi	real - 2025	503
+F	A priori	ONT	real - 2020	829
+F	A priori	ONT	real - 2025	567
+F	Multi POA	PacBio HiFi	real - 2020	576
+F	Multi POA	PacBio HiFi	real - 2025	560
+F	Multi POA	ONT	real - 2020	3
+F	Multi POA	ONT	real - 2025	595
+F	Multi POA (0.90)	PacBio HiFi	real - 2020	527
+F	Multi POA (0.90)	PacBio HiFi	real - 2025	489
+F	Multi POA (0.90)	ONT	real - 2020	328
+F	Multi POA (0.90)	ONT	real - 2025	520
+F	RapidFuzz	PacBio HiFi	real - 2020	560
+F	RapidFuzz	PacBio HiFi	real - 2025	559
+F	RapidFuzz	ONT	real - 2020	609
+F	RapidFuzz	ONT	real - 2025	547
+F	abPOA	PacBio HiFi	real - 2020	445
+F	abPOA	PacBio HiFi	real - 2025	432
+F	abPOA	ONT	real - 2020	452
+F	abPOA	ONT	real - 2025	456
+F	k-mer clust	PacBio HiFi	real - 2020	628
+F	k-mer clust	PacBio HiFi	real - 2025	533
+F	k-mer clust	ONT	real - 2020	1350
+F	k-mer clust	ONT	real - 2025	669
+G	A priori	PacBio HiFi	real - 2020	507
+G	A priori	PacBio HiFi	real - 2025	501
+G	A priori	ONT	real - 2020	450
+G	A priori	ONT	real - 2025	464
+G	Multi POA	PacBio HiFi	real - 2020	333
+G	Multi POA	PacBio HiFi	real - 2025	332
+G	Multi POA	ONT	real - 2020	9903
+G	Multi POA	ONT	real - 2025	324
+G	Multi POA (0.90)	PacBio HiFi	real - 2020	349
+G	Multi POA (0.90)	PacBio HiFi	real - 2025	363
+G	Multi POA (0.90)	ONT	real - 2020	1603
+G	Multi POA (0.90)	ONT	real - 2025	331
+G	RapidFuzz	PacBio HiFi	real - 2020	361
+G	RapidFuzz	PacBio HiFi	real - 2025	356
+G	RapidFuzz	ONT	real - 2020	346
+G	RapidFuzz	ONT	real - 2025	354
+G	abPOA	PacBio HiFi	real - 2020	332
+G	abPOA	PacBio HiFi	real - 2025	321
+G	abPOA	ONT	real - 2020	307
+G	abPOA	ONT	real - 2025	297
+G	k-mer clust	PacBio HiFi	real - 2020	392
+G	k-mer clust	PacBio HiFi	real - 2025	365
+G	k-mer clust	ONT	real - 2020	427
+G	k-mer clust	ONT	real - 2025	457

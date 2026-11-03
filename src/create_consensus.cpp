@@ -28,7 +28,8 @@ int8_t create_consensus(
     std::string phasing_dir,
     std::string phasing_regions,
     aln_params p,
-    bool semiglobal
+    bool semiglobal,
+    uint8_t k
 ) {
     int8_t status = 0;
     consensus_seqs.clear();
@@ -52,7 +53,8 @@ int8_t create_consensus(
             phasing_dir, phasing_regions,
             p, 500,
             method,
-	    semiglobal
+            semiglobal,
+            k
         );
     }
     return status;
@@ -61,8 +63,8 @@ int8_t create_consensus(
 
 int main(int argc, char** argv)
 {
-    if (argc < 12) {
-        std::cerr << "Invalid number of positional arguments: <INFILE> <OUTDIR> <OUTFILE> <STATS_FILE> <PHASING_DIR> <MATCH> <MISMATCH> <OPEN> <EXTEND> <MODE> <METHODS...>." << std::endl;
+    if (argc < 14) {
+        std::cerr << "Invalid number of positional arguments: <INFILE> <OUTDIR> <OUTFILE> <STATS_FILE> <PHASING_DIR> <MATCH> <MISMATCH> <OPEN> <EXTEND> <MODE> <K> <THREADS> <METHODS...>." << std::endl;
         return -1;
     }
 
@@ -78,6 +80,9 @@ int main(int argc, char** argv)
     int8_t ext = std::stoi(argv[9]);
     std::string global = argv[10];
     bool semiglobal = global == "semiglobal";
+    uint8_t k = std::stoi(argv[11]);
+    uint8_t threads = std::stoi(argv[12]);
+
     if (global != "global" && global != "local" && global != "semiglobal")
     {
 	    std::cerr << "[ERROR] Invalid alignment mode: " << global << ". Must be on of [global, local, semiglobal]" << std::endl;
@@ -90,7 +95,7 @@ int main(int argc, char** argv)
     };
 
     std::vector<std::string> methods;
-    for (int i = 11; i < argc; ++i)
+    for (int i = 12; i < argc; ++i)
     {
         if (valid_methods.find(argv[i]) == valid_methods.end())
         {
@@ -209,7 +214,7 @@ int main(int argc, char** argv)
         std::vector<std::string> fa_list_strings;
         std::vector<std::string> stats_strings;
 
-        #pragma omp parallel for num_threads(14) // 16
+        #pragma omp parallel for num_threads(threads)
         for (int i = 0; i < sequence_lists.size(); ++i)
         {
             std::vector<std::string> & sequences = sequence_lists[i];
@@ -232,7 +237,8 @@ int main(int argc, char** argv)
                     methods[j],
                     phasing_dir, phasing_region_list[i],
                     p,
-		    semiglobal
+                    semiglobal,
+                    k
                 );
                 std::chrono::time_point<std::chrono::system_clock> end = std::chrono::system_clock::now();
                 int ms = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();

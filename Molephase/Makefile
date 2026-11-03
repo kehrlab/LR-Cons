@@ -5,7 +5,7 @@ SRC_DIR = ./src
 SRCS := $(shell find $(SRC_DIR) -type f -name "*.cpp")
 OBJS := $(patsubst $(SRC_DIR)/%,$(BUILD_DIR)/%,$(SRCS:.cpp=.o))
 
-SEQAN_LIB = ./include/
+SEQAN_LIB = ./
 # BIFROST_LIB = ./bifrost_API/lib/libbifrost.a
 # BIFROST_INCLUDE = ./bifrost_API/include/
 # BIFROST_INCLUDE = ./bifrost/src

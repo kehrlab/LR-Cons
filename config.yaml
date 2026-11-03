@@ -1,11 +1,32 @@
-ref_file: /misc/rci-rg/ag_kehr/projects/2026_19_01-poa_phasing/lr_consensus_benchmarking/resources/chr1_t2t-chm13.fa
-exclude_file: /misc/rci-rg/ag_kehr/projects/2026_19_01-poa_phasing/lr_consensus_benchmarking/resources/exclude_regions_chr1.bed
+data_dir: data
+resource_dir: data/resources
+ref_dir: data/references
 
-data_dir: /misc/rci-rg/ag_kehr/projects/2026_19_01-poa_phasing/lr_consensus_benchmarking/data
-simdata_dir: /misc/rci-rg/ag_kehr/projects/2026_19_01-poa_phasing/lr_consensus_benchmarking/data/simulated_sequences
-results_dir: /misc/rci-rg/ag_kehr/projects/2026_19_01-poa_phasing/lr_consensus_benchmarking/results
-pbsim_model_path: /home/mit16436/miniforge3/envs/pbsim/data
-mm_idx_ont: /misc/rci-rg/ag_kehr/projects/2026_19_01-poa_phasing/lr_consensus_benchmarking/resources/chr1_t2t.ont.mmi
-mm_idx_pb: /misc/rci-rg/ag_kehr/projects/2026_19_01-poa_phasing/lr_consensus_benchmarking/resources/chr1_t2t.pb.mmi
-binary_dir: /misc/rci-rg/ag_kehr/projects/2026_19_01-poa_phasing/lr_consensus_benchmarking/
+exclude_file: data/resources/exclude_regions_chr1.bed
 
+ref_file: data/references/chr1/chr1_t2t-chm13.fa
+mm_idx_ont: data/references/chr1/chr1_t2t.ont.mmi
+mm_idx_pb: data/references/chr1/chr1_t2t.pb.mmi
+
+simdata_dir: data/simulation
+realdata_dir: data/real/HG002
+results_dir: results
+pbsim_model_path: data/pbsim
+
+binary_dir: bin
+
+real_dir: resources/long_reads/HG002
+asm_dir: data/references/HG002_assembly
+real_ref: data/references/t2t-chm13/genome.fa
+t2t_idx_ont: data/references/t2t-chm13/genome.map-ont.mmi
+t2t_idx_pb: data/references/t2t-chm13/genome.map-pb.mmi
+
+# download links
+asm_url: https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/HG002/assemblies/hg002v1.1.fasta.gz
+vcf_url: https://42basepairs.com/download/web/giab/release/AshkenazimTrio/HG002_NA24385_son/v5.0q/HG002_CHM13v2.0_v5.0q_stvar.vcf.gz
+sm_vcf_url: https://42basepairs.com/download/web/giab/release/AshkenazimTrio/HG002_NA24385_son/v5.0q/HG002_CHM13v2.0_v5.0q_smvar.vcf.gz
+pb_url: https://s3-us-west-2.amazonaws.com/human-pangenomics/T2T/scratch/HG002/sequencing/hifirevio/m84011_220902_175841_s1.hifi_reads.fastq.gz
+hg38_url: https://ont-open-data.s3.amazonaws.com/references/human/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.fna.gz
+ont_aws: s3://ont-open-data/giab_2025.01/basecalling/sup/HG002/
+ont_aws_old: s3://ont-open-data/gm24385_2020.11/analysis/r9.4.1/20201026_1644_2-E5-H5_PAG07162_d7f262d5/guppy_v4.0.11_r9.4.1_hac_prom/basecalls.fastq.gz
+pb_old_url: https://s3-us-west-2.amazonaws.com/human-pangenomics/NHGRI_UCSC_panel/HG002/hpp_HG002_NA24385_son_v1/PacBio_HiFi/

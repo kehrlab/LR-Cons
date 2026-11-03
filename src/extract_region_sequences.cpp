@@ -49,12 +49,12 @@ int main(int argc, char** argv)
     std::string out_file = argv[3];
     std::string bam_path = argv[4];
     std::string mode = argv[5];
-    if (mode != "COMPLETE" && mode != "PARTIAL")
+    if (mode != "complete" && mode != "partial")
     {
-	    std::cerr << "[ERROR] Invalid mode: " << argv[5] << ". Must be one of [COMPLETE, PARTIAL]." << std::endl;
+	    std::cerr << "[ERROR] Invalid mode: " << argv[5] << ". Must be one of [complete, partial]." << std::endl;
 	    return -1;
     }
-    bool rescue_reads = (mode == "PARTIAL");
+    bool rescue_reads = (mode == "partial");
 
     // make sure target directory exists
     if (! std::filesystem::exists(out_dir))

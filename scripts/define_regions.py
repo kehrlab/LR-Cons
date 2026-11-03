@@ -1,13 +1,18 @@
 import json
 import sys
 
-if len(sys.argv) != 4:
-    print("Invalid call: ./define_regions.py <VARIANT_INFO> <MARGIN> <OUT_FILE> ")
+from numpy import random
+
+if len(sys.argv) != 5:
+    print(
+        "Invalid call: ./define_regions.py <VARIANT_INFO> <MARGIN> <OUT_FILE> <BP_SHIFT>"
+    )
     sys.exit(-1)
 
 info_json = sys.argv[1]
 margin = int(sys.argv[2])
 out_file = sys.argv[3]
+bp_shift = int(sys.argv[4])
 
 with open(info_json, "r") as f_in:
     variants = json.load(f_in)
@@ -31,10 +36,17 @@ for id in variants:
     bp1 = variant["START"]
     bp2 = variant["END"]
 
+    shift = random.normal(0, bp_shift)
     if id not in breakpoints:
-        breakpoints[id] = [bp1, bp2]
+        breakpoints[id] = [
+            bp1 + shift,
+            bp2 + shift,
+        ]
     else:
-        breakpoints[id] += [bp1, bp2]
+        breakpoints[id] += [
+            bp1 + shift,
+            bp2 + shift,
+        ]
 
     # zygosities[id] = variant["ZYG"]
     types[id] = variant["TYPE"]
@@ -46,14 +58,14 @@ for id in breakpoints:
     regions[id] = []
     breakpoints[id].sort()
     region_start = breakpoints[id][0] - margin
-    region_end = breakpoints[id][0] + margin
-    for i in range(len(breakpoints[id])):
-        region_end = breakpoints[id][i] + margin
-        if i == len(breakpoints[id]) - 1:
-            break
-        if region_end < breakpoints[id][i + 1] - margin:
-            regions[id].append("chr1:" + str(region_start) + "-" + str(region_end))
-            region_start = breakpoints[id][i + 1] - margin
+    region_end = breakpoints[id][-1] + margin
+    #for i in range(len(breakpoints[id])):
+    #    region_end = breakpoints[id][i] + margin
+    #    if i == len(breakpoints[id]) - 1:
+    #        break
+    #    if region_end < breakpoints[id][i + 1] - margin:
+    #        regions[id].append("chr1:" + str(region_start) + "-" + str(region_end))
+    #        region_start = breakpoints[id][i + 1] - margin
     regions[id].append("chr1:" + str(region_start) + "-" + str(region_end))
 
 # write variant info and regions

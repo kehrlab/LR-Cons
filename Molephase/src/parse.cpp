@@ -1,8 +1,8 @@
 # include <iostream>
 # include <fstream>
-# include "seqan/seq_io.h"
-# include "seqan/sequence.h"
-# include "seqan/arg_parse.h"
+# include "../seqan/seq_io.h"
+# include "../seqan/sequence.h"
+# include "../seqan/arg_parse.h"
 # include "parse.h"
 // # include "split_io.h"
 // # include "functions.h"
@@ -51,11 +51,11 @@ seqan::ArgumentParser::ParseResult parsePhaseCommandLine(phaseOptions & options,
       seqan::ArgParseArgument::STRING, "string"));
     setRequired(parser, "c");
     addOption(parser, seqan::ArgParseOption(
-      "s", "start", "start position of genomic region of interest.",
+      "s", "start", "Start position of genomic region of interest. [1-based]",
       seqan::ArgParseArgument::INTEGER, "unsigned"));
     setRequired(parser, "s");
     addOption(parser, seqan::ArgParseOption(
-      "e", "end", "start position of genomic region of interest.",
+      "e", "end", "End position of genomic region of interest. [1-based]",
       seqan::ArgParseArgument::INTEGER, "unsigned"));
     setRequired(parser, "e");
 

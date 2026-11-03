@@ -108,8 +108,8 @@ def insert_comphet_del(haplotype_seqs, chromosome, size, i, start, end):
         },
         id2: {
             "CHR": chromosome,
-            "START": start - int(0.1 * size),
-            "END": end + int(0.2 * size),
+            "START": start - int(0.3 * size),
+            "END": end + int(0.7 * size),
             "SIZE": size,
             "ZYG": "",
             "TYPE": "COMPHET_DEL",
@@ -124,10 +124,8 @@ def insert_comphet_del(haplotype_seqs, chromosome, size, i, start, end):
     variants[id1]["ZYG"] = ["HAP1", "HAP2"][indices[0]]
 
     haplotype_seqs[indices[1]] = (
-        haplotype_seqs[indices[1]][: start + 1 - int(0.1 * size)]
-        + haplotype_seqs[indices[1]][
-            start + size + int(0.3 * size) + 1 - int(0.1 * size) :
-        ]
+        haplotype_seqs[indices[1]][: start + 1 - int(0.3 * size)]
+        + haplotype_seqs[indices[1]][start + size + int(0.7 * size) + 1 :]
     )
     variants[id2]["ZYG"] = ["HAP1", "HAP2"][indices[1]]
 
@@ -148,9 +146,9 @@ def insert_shifted_comphet(haplotype_seqs, chromosome, size, i, start, end):
         },
         id2: {
             "CHR": chromosome,
-            "START": end + 150,
-            "END": end + 150 + int(size * 0.6),
-            "SIZE": int(size * 0.6),
+            "START": end + 100,
+            "END": end + 100 + size,
+            "SIZE": size,
             "ZYG": "",
             "TYPE": "SHIFTED_COMPHET",
         },
@@ -164,11 +162,11 @@ def insert_shifted_comphet(haplotype_seqs, chromosome, size, i, start, end):
     variants[id1]["ZYG"] = ["HAP1", "HAP2"][indices[0]]
 
     haplotype_seqs[indices[1]] = (
-        haplotype_seqs[indices[1]][: end + 1 + 150]
+        haplotype_seqs[indices[1]][: end + 1 + 100]
         + reverse_complement(
-            haplotype_seqs[indices[1]][end + 1 + 150 : end + 1 + 150 + int(size * 0.6)]
+            haplotype_seqs[indices[1]][end + 1 + 100 : end + 1 + 100 + size]
         )
-        + haplotype_seqs[indices[1]][end + 1 + 150 + int(size * 0.6) :]
+        + haplotype_seqs[indices[1]][end + 1 + 100 + size :]
     )
     variants[id2]["ZYG"] = ["HAP1", "HAP2"][indices[1]]
 
@@ -194,12 +192,12 @@ def get_allele_seqs(haplotype_seqs, variant_info, margin=1000):
         for v in variant_info:
             if variant_info[v]["TYPE"] == "SHIFTED_COMPHET":
                 if ".1" in v:
-                    end = start + int(0.6 * variant_info[v]["SIZE"]) + 150
+                    end = start + variant_info[v]["SIZE"] + 100
                 else:
-                    end = start + int(variant_info[v]["SIZE"] * (1.6 / 0.6)) + 150
+                    end = start + 2 * variant_info[v]["SIZE"] + 100
             else:
                 if ".1" in v:
-                    end = start + int(0.2 * variant_info[v]["SIZE"])
+                    end = start + variant_info[v]["SIZE"]
                 else:
                     end = start + 1
 
@@ -354,7 +352,7 @@ if __name__ == "__main__":
                 variant_info = f(
                     haplotype_seqs, chromosome, size, i, start_pos, end_pos
                 )
-                allele_seqs = get_allele_seqs(haplotype_seqs, variant_info, 1000)
+                allele_seqs = get_allele_seqs(haplotype_seqs, variant_info, 2000)
 
                 type = ""
                 for v in variant_info:

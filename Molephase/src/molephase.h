@@ -3,7 +3,7 @@
 
 # include "parse.h"
 # include "coverageIndex.h"
-# include "seqan/sequence.h"
+# include "../seqan/sequence.h"
 
 using namespace seqan;
 

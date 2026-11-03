@@ -1,0 +1,41 @@
+METHOD	SPANNING	TECHNOLOGY	ORIGIN	AvgER
+A priori	partial	ONT	real - 2020	0.002008032128514081
+A priori	partial	ONT	real - 2025	0.0010277492291880241
+A priori	partial	PacBio HiFi	real - 2020	9.980039920159944e-4
+A priori	partial	PacBio HiFi	real - 2025	9.980039920159944e-4
+A priori	spanning	ONT	real - 2020	0.0020030045067601643
+A priori	spanning	ONT	real - 2025	0.0010050251256281673
+A priori	spanning	PacBio HiFi	real - 2020	9.980039920159944e-4
+A priori	spanning	PacBio HiFi	real - 2025	9.980039920159944e-4
+Multi POA	partial	ONT	real - 2020	0.0029940119760478723
+Multi POA	partial	ONT	real - 2025	0.0010040160642570406
+Multi POA	partial	PacBio HiFi	real - 2020	9.980039920159944e-4
+Multi POA	partial	PacBio HiFi	real - 2025	9.980039920159944e-4
+Multi POA	spanning	ONT	real - 2020	0.002887391722810384
+Multi POA	spanning	ONT	real - 2025	0.0010000000000000009
+Multi POA	spanning	PacBio HiFi	real - 2020	9.980039920159944e-4
+Multi POA	spanning	PacBio HiFi	real - 2025	9.980039920159944e-4
+RapidFuzz	partial	ONT	real - 2020	0.001999000499750103
+RapidFuzz	partial	ONT	real - 2025	0.0010211897525420621
+RapidFuzz	partial	PacBio HiFi	real - 2020	9.980039920159944e-4
+RapidFuzz	partial	PacBio HiFi	real - 2025	9.980039920159944e-4
+RapidFuzz	spanning	ONT	real - 2020	0.0019980019980020414
+RapidFuzz	spanning	ONT	real - 2025	0.0010111223458038054
+RapidFuzz	spanning	PacBio HiFi	real - 2020	9.980039920159944e-4
+RapidFuzz	spanning	PacBio HiFi	real - 2025	9.980039920159944e-4
+abPOA	partial	ONT	real - 2020	0.0014992503748125774
+abPOA	partial	ONT	real - 2025	9.990009990009652e-4
+abPOA	partial	PacBio HiFi	real - 2020	9.990009990009652e-4
+abPOA	partial	PacBio HiFi	real - 2025	9.980039920159944e-4
+abPOA	spanning	ONT	real - 2020	0.0014197823000473564
+abPOA	spanning	ONT	real - 2025	9.980039920159944e-4
+abPOA	spanning	PacBio HiFi	real - 2020	9.980039920159944e-4
+abPOA	spanning	PacBio HiFi	real - 2025	9.980039920159944e-4
+k-mer clust	partial	ONT	real - 2020	0.0028195488721804995
+k-mer clust	partial	ONT	real - 2025	0.0016949152542372614
+k-mer clust	partial	PacBio HiFi	real - 2020	9.990009990009652e-4
+k-mer clust	partial	PacBio HiFi	real - 2025	9.980039920159944e-4
+k-mer clust	spanning	ONT	real - 2020	0.0025075225677031465
+k-mer clust	spanning	ONT	real - 2025	0.0014499758337360724
+k-mer clust	spanning	PacBio HiFi	real - 2020	9.980039920159944e-4
+k-mer clust	spanning	PacBio HiFi	real - 2025	9.980039920159944e-4

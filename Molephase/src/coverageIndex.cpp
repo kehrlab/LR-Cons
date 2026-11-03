@@ -1,5 +1,5 @@
-# include "seqan/seq_io.h"
-# include "seqan/sequence.h"
+# include "../seqan/seq_io.h"
+# include "../seqan/sequence.h"
 # include "parse.h"
 # include "call_index.h"
 # include "coverageIndex.h"

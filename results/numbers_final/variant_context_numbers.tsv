@@ -1,0 +1,25 @@
+CONTEXT	MARGIN	ORIGIN	N
+CenSat	500	real - 2020	2719
+CenSat	500	real - 2025	2719
+CenSat	1000	real - 2020	2122
+CenSat	1000	real - 2025	2122
+Other	500	real - 2020	6318
+Other	500	real - 2025	6318
+Other	1000	real - 2020	5992
+Other	1000	real - 2025	5992
+Seg. Dup.	500	real - 2020	589
+Seg. Dup.	500	real - 2025	589
+Seg. Dup.	1000	real - 2020	480
+Seg. Dup.	1000	real - 2025	480
+Simple Repeat	500	real - 2020	3841
+Simple Repeat	500	real - 2025	3841
+Simple Repeat	1000	real - 2020	3692
+Simple Repeat	1000	real - 2025	3692
+Tandem Repeat	500	real - 2020	35
+Tandem Repeat	500	real - 2025	35
+Tandem Repeat	1000	real - 2020	34
+Tandem Repeat	1000	real - 2025	34
+Telomere	500	real - 2020	4
+Telomere	500	real - 2025	4
+Telomere	1000	real - 2020	4
+Telomere	1000	real - 2025	4

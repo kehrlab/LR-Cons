@@ -6,7 +6,7 @@
 #include <stdint.h>
 #include <string>
 #include <iostream>
-# include "seqan/sequence.h"
+# include "../seqan/sequence.h"
 
 // #include "classes.h"
 using namespace seqan;
